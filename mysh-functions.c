@@ -207,7 +207,7 @@ int do_redir(char **args, int len, int *fd)
         if(!strcmp(args[i], "<"))
         {
             fd[0]  = open(args[i + 1], O_RDONLY);
-            printf("fd[0] = %d\n", fd[0]);
+            //printf("fd[0] = %d\n", fd[0]);
             dup2(fd[0], 0);
             flag = 1;
         }
@@ -221,7 +221,7 @@ int do_redir(char **args, int len, int *fd)
             /* truncate */
             else
                 fd[1] = creat(args[i + 1], S_IRUSR|S_IWUSR|S_IRGRP|S_IROTH);
-            printf("fd[1] = %d\n", fd[1]);
+            //printf("fd[1] = %d\n", fd[1]);
             dup2(fd[1], 1);
             flag = 1;
         }
